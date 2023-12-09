@@ -1,7 +1,7 @@
 //useFetch.js
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { API_KEY, URL } from "../api/api";
+import { SECRET, URL } from "../api/api";
 
 function useFetch(search) {
   const [data, setData] = useState({});
@@ -14,7 +14,7 @@ function useFetch(search) {
       setData({});
       setError(null);
       axios
-        .get(`${URL}?apikey=${API_KEY}&t=${search}`)
+        .get(`${URL}?apikey=${SECRET}&t=${search}`)
         .then((response) => {
           setLoading(false);
           if (response.data.Error === "Movie not found!")
